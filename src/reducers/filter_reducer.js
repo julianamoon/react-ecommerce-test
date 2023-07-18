@@ -78,7 +78,7 @@ const filter_reducer = (state, action) => {
     // text
     if (text) {
       tempProducts = tempProducts.filter((product) => {
-        return product.name.toLowerCase().startsWith(text);
+        return product.name.toLowerCase().includes(text);
       });
     }
     // category
@@ -100,9 +100,9 @@ const filter_reducer = (state, action) => {
       });
     }
     // price
-  tempProducts = tempProducts.filter((product) => {
-    return product.price <= price;
-  });
+    tempProducts = tempProducts.filter((product) => {
+      return product.price <= price;
+    });
     // shipping
     if (shipping) {
       tempProducts = tempProducts.filter((product) => {
